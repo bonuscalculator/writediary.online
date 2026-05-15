@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – WriteDiary.online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <style>
+    .about-page { padding: 80px 0; }
+    .about-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .about-text h1 { font-family: var(--font-h); color: var(--purple); font-size: 2.5rem; margin-bottom: 20px; }
+    .about-text p { margin-bottom: 20px; color: var(--text-m); font-size: 1.1rem; }
+    .founder-card { 
+      background: white; 
+      padding: 30px; 
+      border-radius: var(--radius); 
+      box-shadow: 0 10px 30px var(--shadow);
+      border-bottom: 5px solid var(--pink);
+    }
+    .founder-card h3 { font-family: var(--font-h); color: var(--text); margin-bottom: 10px; }
+    .badge { 
+      display: inline-block; 
+      padding: 5px 15px; 
+      background: var(--bg); 
+      border-radius: 50px; 
+      font-size: 0.85rem; 
+      font-weight: 700; 
+      color: var(--blue);
+      margin-bottom: 15px;
+    }
+    @media (max-width: 900px) {
+      .about-wrapper { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div id="header-root"></div>
+
+  <main class="about-page container">
+    <div class="about-wrapper">
+      <div class="about-text">
+        <h1>Hello! We're glad you're here.</h1>
+        <p>WriteDiary.online was created with a simple mission: to provide a safe, beautiful, and distraction-free space for people to express their thoughts and track their personal growth.</p>
+        <p>We believe that journaling is a powerful tool for mental clarity and emotional health. Whether you are documenting your daily life, tracking your mood, or exploring new ideas, our platform is built to support your journey.</p>
+      </div>
+      <div class="founder-card">
+        <div class="badge">Founder & Creator</div>
+        <h3>Aansa Waqas</h3>
+        <p>Aansa is a dedicated web developer and SEO expert with a passion for building user-centric digital tools. With a focus on performance and accessibility, she designed WriteDiary.online to be a fast, secure, and intuitive environment for writers everywhere.</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-root"></div>
+  <script src="components.js"></script>
+</body>
+</html>
