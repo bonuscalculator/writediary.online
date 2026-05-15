@@ -10,7 +10,7 @@
             <div class="header-inner">
                 <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
                     <span class="logo-icon">📓</span>
-                    <span>WriteDiary.online</span>
+                    <span>Diary online</span>
                 </div>
                 <nav class="nav-links">
                     <a href="/">Home</a>
@@ -49,7 +49,7 @@
                     <div class="footer-brand">
                         <div class="logo" style="justify-content:flex-start; margin-bottom:14px">
                             <span class="logo-icon">📓</span>
-                            <span>WriteDiary.online</span>
+                            <span>Diary online</span>
                         </div>
                         <p>Your personal online diary — write, reflect, and grow. Free, secure, and beautiful journaling for everyone.</p>
                     </div>
