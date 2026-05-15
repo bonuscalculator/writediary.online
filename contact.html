@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – WriteDiary.online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <style>
+    .contact-page { padding: 80px 0; max-width: 600px; margin: 0 auto; text-align: center; }
+    .contact-page h1 { font-family: var(--font-h); color: var(--teal); margin-bottom: 20px; }
+    .contact-page p { color: var(--text-m); margin-bottom: 40px; }
+    .contact-card {
+      background: white;
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px var(--shadow);
+      border-top: 5px solid var(--yellow);
+    }
+    .email-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--purple);
+      text-decoration: none;
+      padding: 10px 25px;
+      background: var(--bg);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .email-link:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .social-notice { margin-top: 30px; font-size: 0.9rem; color: var(--text-l); }
+  </style>
+</head>
+<body>
+  <div id="header-root"></div>
+
+  <main class="contact-page container">
+    <h1>Get in Touch</h1>
+    <p>Have a question, feedback, or a feature suggestion? We'd love to hear from you!</p>
+    
+    <div class="contact-card">
+      <div style="font-size: 3rem; margin-bottom: 10px;">✉️</div>
+      <h3>Email Us Directly</h3>
+      <p>Our team usually responds within 24-48 hours.</p>
+      <a href="mailto:aansawaqas50@gmail.com" class="email-link">aansawaqas50@gmail.com</a>
+    </div>
+
+    <div class="social-notice">
+      Follow us on our journey to make journaling accessible for everyone.
+    </div>
+  </main>
+
+  <div id="footer-root"></div>
+  <script src="components.js"></script>
+</body>
+</html>
