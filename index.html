@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WriteDiary.online – Your Personal Online Diary & Journal</title>
+  <meta name="description" content="WriteDiary.online is a free, secure online diary and personal journal app. Write daily entries, track your mood, reflect on memories, and grow through journaling. Start your digital diary today." />
+  <meta name="keywords" content="online diary, personal journal, digital diary, write diary online, daily journal, mood tracker, private diary, journaling app, free online diary, secure diary" />
+  <meta name="author" content="WriteDiary.online" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://writediary.online/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="WriteDiary.online – Your Personal Online Diary & Journal" />
+  <meta property="og:description" content="Write, reflect, and grow with WriteDiary.online — a free, secure, and beautiful online diary app for everyone." />
+  <meta property="og:url" content="https://writediary.online/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://writediary.online/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WriteDiary.online – Personal Online Diary" />
+  <meta name="twitter:description" content="Your free, private, and beautiful digital diary. Write daily, reflect, and grow." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WriteDiary.online",
+    "url": "https://writediary.online",
+    "description": "A free, secure online diary and personal journal application for daily writing, mood tracking, and self-reflection.",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": ["Private diary entries", "Mood tracking", "Rich text editor", "Calendar view", "Tags and search", "Daily reminders"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "WriteDiary.online",
+      "url": "https://writediary.online"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is WriteDiary.online free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes! WriteDiary.online is completely free. Start writing your personal diary without any cost or subscription." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my diary private and secure?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Your diary entries are encrypted and stored securely. Only you can access your personal journal." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I write a diary on my phone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes! WriteDiary.online is fully mobile-compatible, allowing you to write diary entries from any device — phone, tablet, or desktop." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER (JS Component) -->
+  <div id="header-root"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
+      <div class="bubble b3"></div>
+      <div class="bubble b4"></div>
+      <div class="bubble b5"></div>
+      <div class="floating-emoji e1">📖</div>
+      <div class="floating-emoji e2">✏️</div>
+      <div class="floating-emoji e3">💭</div>
+      <div class="floating-emoji e4">🌟</div>
+      <div class="floating-emoji e5">🎨</div>
+      <div class="floating-emoji e6">💡</div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">✨ Free Forever · No Credit Card Needed</div>
+        <h1 class="hero-title">Your Personal <span class="highlight">Online Diary</span> — Write, Reflect & Grow</h1>
+        <p class="hero-sub">WriteDiary.online is a safe, beautiful space to capture your daily thoughts, track your mood, preserve memories, and journal your way to a better you. Start writing in seconds — no sign-up stress, no clutter.</p>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="openApp()">📝 Start Your Diary</button>
+          <button class="btn-secondary" onclick="scrollToFeatures()">Explore Features ↓</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-n">50K+</span><span class="stat-l">Diary Writers</span></div>
+          <div class="stat-sep">|</div>
+          <div class="stat"><span class="stat-n">2M+</span><span class="stat-l">Entries Written</span></div>
+          <div class="stat-sep">|</div>
+          <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Private & Secure</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="diary-mockup">
+          <div class="dm-header">
+            <span class="dm-dot red"></span>
+            <span class="dm-dot yellow"></span>
+            <span class="dm-dot green"></span>
+            <span class="dm-title">My Diary – Today</span>
+          </div>
+          <div class="dm-date">📅 <span id="today-date"></span></div>
+          <div class="dm-mood">How are you feeling? <span class="mood-sel active">😊</span><span class="mood-sel">😌</span><span class="mood-sel">😢</span><span class="mood-sel">🔥</span><span class="mood-sel">🤔</span></div>
+          <div class="dm-editor" id="demo-editor" contenteditable="true" spellcheck="false">Dear Diary,<br><br>Today was absolutely wonderful! I started the morning with a cup of tea and watched the sunrise from my window. The sky was painted in shades of pink and orange...<br><br><span class="cursor-blink">|</span></div>
+          <div class="dm-toolbar">
+            <button class="dm-btn">Bold</button>
+            <button class="dm-btn">Italic</button>
+            <button class="dm-btn">📎 Photo</button>
+            <button class="dm-btn save-btn">💾 Save</button>
+          </div>
+          <div class="dm-tags">Tags: <span class="tag">morning</span><span class="tag">grateful</span><span class="tag">+add</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DIARY SECTION -->
+  <section class="why-diary" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge pink">📚 The Power of Journaling</div>
+        <h2>Why Keep an Online Diary?</h2>
+        <p>Science-backed benefits of daily journaling that will transform your mental clarity, emotional health, and personal growth.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card wc1" data-anim="fadeUp">
+          <div class="wc-icon">🧠</div>
+          <h3>Mental Clarity</h3>
+          <p>Writing your thoughts in a personal diary helps organise your mind, reduce anxiety, and process emotions more effectively. Regular journaling is proven to improve cognitive function.</p>
+        </div>
+        <div class="why-card wc2" data-anim="fadeUp" style="animation-delay:0.1s">
+          <div class="wc-icon">💪</div>
+          <h3>Emotional Resilience</h3>
+          <p>An online diary becomes your emotional outlet — a judgment-free zone where you can express feelings freely, helping build greater resilience and self-awareness over time.</p>
+        </div>
+        <div class="why-card wc3" data-anim="fadeUp" style="animation-delay:0.2s">
+          <div class="wc-icon">🎯</div>
+          <h3>Goal Tracking</h3>
+          <p>Use your digital diary to set intentions, track daily habits, and celebrate milestones. Watching your progress unfold across entries is deeply motivating.</p>
+        </div>
+        <div class="why-card wc4" data-anim="fadeUp" style="animation-delay:0.3s">
+          <div class="wc-icon">🕰️</div>
+          <h3>Preserve Memories</h3>
+          <p>Unlike paper diaries, your online diary is safe from loss, fading, or damage. Revisit any moment in your life with a simple search — memories preserved forever.</p>
+        </div>
+        <div class="why-card wc5" data-anim="fadeUp" style="animation-delay:0.4s">
+          <div class="wc-icon">🌱</div>
+          <h3>Personal Growth</h3>
+          <p>Reading past diary entries reveals how far you've come. Track your growth, patterns, and transformations — a powerful mirror to your evolving self.</p>
+        </div>
+        <div class="why-card wc6" data-anim="fadeUp" style="animation-delay:0.5s">
+          <div class="wc-icon">✍️</div>
+          <h3>Improve Writing</h3>
+          <p>Daily diary writing naturally sharpens your vocabulary, sentence structure, and creative expression. The more you write, the more eloquently you communicate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP / DIARY SECTION -->
+  <section class="app-section" id="app">
+    <div class="container">
+      <div class="section-header light">
+        <div class="section-badge yellow">🖊️ The Diary App</div>
+        <h2>Write Your Story, Your Way</h2>
+        <p>A powerful yet distraction-free diary writing experience built for students, professionals, and dreamers alike.</p>
+      </div>
+
+      <div class="diary-app" id="diary-app">
+        <!-- Sidebar -->
+        <div class="app-sidebar">
+          <div class="sidebar-top">
+            <h3>📓 My Diary</h3>
+            <button class="new-entry-btn" onclick="newEntry()">+ New Entry</button>
+          </div>
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="🔍 Search entries..." oninput="searchEntries()" />
+          </div>
+          <div class="entry-list" id="entry-list"></div>
+        </div>
+        <!-- Editor -->
+        <div class="app-editor">
+          <div class="editor-header">
+            <div class="editor-meta">
+              <input type="text" id="entry-title" placeholder="Entry Title..." class="title-input" />
+              <div class="meta-row">
+                <input type="date" id="entry-date" class="date-input" />
+                <div class="mood-picker">
+                  <span>Mood:</span>
+                  <button class="mood-btn active" data-mood="😊" onclick="setMood(this)">😊</button>
+                  <button class="mood-btn" data-mood="😌" onclick="setMood(this)">😌</button>
+                  <button class="mood-btn" data-mood="😢" onclick="setMood(this)">😢</button>
+                  <button class="mood-btn" data-mood="😤" onclick="setMood(this)">😤</button>
+                  <button class="mood-btn" data-mood="🤔" onclick="setMood(this)">🤔</button>
+                  <button class="mood-btn" data-mood="🥳" onclick="setMood(this)">🥳</button>
+                </div>
+              </div>
+            </div>
+            <div class="editor-toolbar">
+              <button onclick="fmt('bold')" title="Bold"><b>B</b></button>
+              <button onclick="fmt('italic')" title="Italic"><i>I</i></button>
+              <button onclick="fmt('underline')" title="Underline"><u>U</u></button>
+              <button onclick="insertHeading()" title="Heading">H1</button>
+              <button onclick="fmt('insertUnorderedList')" title="List">≡</button>
+              <button onclick="changeFont('Caveat, cursive')" title="Handwriting">✍</button>
+              <button onclick="changeFont('Nunito, sans-serif')" title="Normal">Aa</button>
+              <span class="sep"></span>
+              <input type="color" id="text-color" onchange="changeColor(this.value)" title="Text Color" value="#2d2d2d" />
+              <button onclick="insertQuote()" title="Quote">❝</button>
+            </div>
+          </div>
+          <div class="editor-body" id="diary-editor" contenteditable="true" spellcheck="true"></div>
+          <div class="editor-footer">
+            <div class="tags-area">
+              <span class="tags-label">🏷️ Tags:</span>
+              <div id="tags-container" class="tags-container"></div>
+              <input type="text" id="tag-input" placeholder="Add tag..." onkeydown="addTag(event)" />
+            </div>
+            <div class="editor-actions">
+              <span class="word-count" id="word-count">0 words</span>
+              <button class="btn-save" onclick="saveEntry()">💾 Save Entry</button>
+              <button class="btn-delete" onclick="deleteEntry()">🗑️ Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge green">⚡ Features</div>
+        <h2>Everything Your Diary Needs</h2>
+        <p>WriteDiary.online packs powerful journaling tools in a clean, colourful, educational-style interface you'll love using every day.</p>
+      </div>
+      <div class="features-tabs">
+        <button class="ftab active" onclick="showFTab(this,'write')">✍️ Writing</button>
+        <button class="ftab" onclick="showFTab(this,'organize')">📁 Organize</button>
+        <button class="ftab" onclick="showFTab(this,'privacy')">🔒 Privacy</button>
+        <button class="ftab" onclick="showFTab(this,'insights')">📊 Insights</button>
+      </div>
+      <div class="ftab-content active" id="ftab-write">
+        <div class="feat-grid">
+          <div class="feat-card"><div class="fc-icon" style="background:#FFE4B5">✍️</div><h4>Rich Text Editor</h4><p>Format your diary entries with bold, italic, headings, lists, and custom fonts including a beautiful handwriting style.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#E0F7FA">📎</div><h4>Photo Attachments</h4><p>Add photos, drawings, and images to bring your diary entries to life with visual memories.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#F3E5F5">🎨</div><h4>Customizable Themes</h4><p>Choose from dozens of colourful diary themes and backgrounds that match your personality and mood.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#E8F5E9">💭</div><h4>Writing Prompts</h4><p>Never face writer's block again — daily writing prompts inspire meaningful, thoughtful diary entries every day.</p></div>
+        </div>
+      </div>
+      <div class="ftab-content" id="ftab-organize">
+        <div class="feat-grid">
+          <div class="feat-card"><div class="fc-icon" style="background:#FFF9C4">🗓️</div><h4>Calendar View</h4><p>Browse your diary by date on a beautiful calendar — see streaks, patterns, and never miss a journaling day.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#FCE4EC">🏷️</div><h4>Tags & Categories</h4><p>Organise entries with custom tags like #travel, #gratitude, #dreams — find any entry instantly.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#E3F2FD">🔍</div><h4>Powerful Search</h4><p>Search across all your diary entries by keyword, date, mood, or tag. Your memories, always findable.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#E8F5E9">📂</div><h4>Multiple Journals</h4><p>Create separate journals — a travel diary, a gratitude journal, a dream log — all in one place.</p></div>
+        </div>
+      </div>
+      <div class="ftab-content" id="ftab-privacy">
+        <div class="feat-grid">
+          <div class="feat-card"><div class="fc-icon" style="background:#FFE4B5">🔐</div><h4>End-to-End Encryption</h4><p>Your diary entries are encrypted before they leave your device. Only you hold the key to your private journal.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#E0F7FA">🔑</div><h4>Password Lock</h4><p>Set a master password or use biometric lock to keep your diary completely private on shared devices.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#F3E5F5">👁️‍🗨️</div><h4>Incognito Mode</h4><p>Write in incognito mode — no previews, no notifications, nothing visible to anyone but you.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#E8F5E9">☁️</div><h4>Secure Cloud Backup</h4><p>Auto-backup your diary to a secure cloud so you never lose precious memories, even if you change devices.</p></div>
+        </div>
+      </div>
+      <div class="ftab-content" id="ftab-insights">
+        <div class="feat-grid">
+          <div class="feat-card"><div class="fc-icon" style="background:#FFF9C4">📈</div><h4>Mood Analytics</h4><p>Visualise your emotional journey with colourful mood charts — identify patterns, triggers, and positive trends.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#FCE4EC">🔥</div><h4>Writing Streaks</h4><p>Build consistent journaling habits with streak tracking — your longest streak is your personal best.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#E3F2FD">💬</div><h4>Word Count Stats</h4><p>Track how much you've written over days, weeks, and months. Watch your diary grow into a rich life story.</p></div>
+          <div class="feat-card"><div class="fc-icon" style="background:#E8F5E9">📅</div><h4>On This Day</h4><p>Relive memories with "On This Day" reminders — see what you wrote exactly one, two, or five years ago today.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOOD TRACKER SECTION -->
+  <section class="mood-section" id="mood">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge orange">😊 Mood Tracker</div>
+        <h2>Track Your Emotional Journey</h2>
+        <p>Log your mood alongside every diary entry. Discover patterns, understand your emotional landscape, and nurture your wellbeing with WriteDiary's built-in mood tracker.</p>
+      </div>
+      <div class="mood-demo">
+        <div class="mood-calendar">
+          <div class="mc-header">
+            <h4>May 2025 — Mood Calendar</h4>
+          </div>
+          <div class="mc-grid" id="mood-calendar-grid"></div>
+          <div class="mc-legend">
+            <span><span class="leg-dot" style="background:#4CAF50"></span> Happy</span>
+            <span><span class="leg-dot" style="background:#2196F3"></span> Calm</span>
+            <span><span class="leg-dot" style="background:#FF9800"></span> Energized</span>
+            <span><span class="leg-dot" style="background:#9C27B0"></span> Thoughtful</span>
+            <span><span class="leg-dot" style="background:#F44336"></span> Sad</span>
+          </div>
+        </div>
+        <div class="mood-stats">
+          <h4>Your Mood This Month</h4>
+          <div class="mood-bar-item">
+            <span>😊 Happy</span>
+            <div class="mbar"><div class="mbar-fill" style="width:65%;background:#4CAF50"></div></div>
+            <span>65%</span>
+          </div>
+          <div class="mood-bar-item">
+            <span>😌 Calm</span>
+            <div class="mbar"><div class="mbar-fill" style="width:20%;background:#2196F3"></div></div>
+            <span>20%</span>
+          </div>
+          <div class="mood-bar-item">
+            <span>🔥 Energized</span>
+            <div class="mbar"><div class="mbar-fill" style="width:10%;background:#FF9800"></div></div>
+            <span>10%</span>
+          </div>
+          <div class="mood-bar-item">
+            <span>😢 Sad</span>
+            <div class="mbar"><div class="mbar-fill" style="width:5%;background:#F44336"></div></div>
+            <span>5%</span>
+          </div>
+          <div class="streak-box">
+            <div class="streak-fire">🔥</div>
+            <div>
+              <div class="streak-num">18</div>
+              <div class="streak-label">Day Writing Streak!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING PROMPTS SECTION -->
+  <section class="prompts-section" id="prompts">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge purple">💡 Daily Prompts</div>
+        <h2>Never Face a Blank Page Again</h2>
+        <p>Our AI-powered daily writing prompts spark meaningful diary entries. From gratitude reflections to creative storytelling — there's always something worth writing about.</p>
+      </div>
+      <div class="prompts-wrapper">
+        <div class="prompt-card active" id="prompt-display">
+          <div class="prompt-category" id="prompt-cat">✨ Gratitude</div>
+          <div class="prompt-text" id="prompt-text">"What are three things that happened today that you're genuinely grateful for — no matter how small they seem?"</div>
+          <button class="prompt-use-btn" onclick="usePrompt()">Use This Prompt ✍️</button>
+        </div>
+        <div class="prompt-categories">
+          <button class="pcat-btn active" onclick="showPromptCat(this,'gratitude')">🙏 Gratitude</button>
+          <button class="pcat-btn" onclick="showPromptCat(this,'reflection')">🌅 Reflection</button>
+          <button class="pcat-btn" onclick="showPromptCat(this,'creative')">🎨 Creative</button>
+          <button class="pcat-btn" onclick="showPromptCat(this,'growth')">🌱 Growth</button>
+          <button class="pcat-btn" onclick="showPromptCat(this,'mindfulness')">🧘 Mindfulness</button>
+          <button class="pcat-btn" onclick="showPromptCat(this,'memories')">📸 Memories</button>
+        </div>
+        <button class="btn-new-prompt" onclick="nextPrompt()">✨ New Prompt</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION -->
+  <section class="how-section" id="how">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge teal">🚀 Getting Started</div>
+        <h2>Start Your Online Diary in 3 Easy Steps</h2>
+        <p>WriteDiary.online is designed to be simple, intuitive, and joyful to use — from your very first entry.</p>
+      </div>
+      <div class="steps-wrapper">
+        <div class="step-line"></div>
+        <div class="step" data-anim="slideIn">
+          <div class="step-num">01</div>
+          <div class="step-icon">👤</div>
+          <h3>Create Your Account</h3>
+          <p>Sign up in seconds with your email. No complicated forms, no credit cards — just your name and a password to keep your diary safe.</p>
+        </div>
+        <div class="step" data-anim="slideIn" style="animation-delay:0.2s">
+          <div class="step-num">02</div>
+          <div class="step-icon">📝</div>
+          <h3>Write Your First Entry</h3>
+          <p>Open the editor, pick a writing prompt or start from scratch, and pour your thoughts onto the page. Your diary is always ready when you are.</p>
+        </div>
+        <div class="step" data-anim="slideIn" style="animation-delay:0.4s">
+          <div class="step-num">03</div>
+          <div class="step-icon">📚</div>
+          <h3>Build Your Story</h3>
+          <p>Write daily, track your mood, add photos, and watch your personal story unfold. Review past entries, celebrate growth, and cherish every memory.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM / AUDIENCE SECTION -->
+  <section class="audience-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge pink">👩‍🎓 Who It's For</div>
+        <h2>Your Online Diary, Whatever Your Story</h2>
+        <p>WriteDiary.online is built for everyone who believes their thoughts, feelings, and experiences deserve to be written down.</p>
+      </div>
+      <div class="audience-grid">
+        <div class="aud-card" style="--ac:#FFB3BA">
+          <div class="ac-img">🧒</div>
+          <h3>Students</h3>
+          <p>Journaling helps students process academic pressure, set learning goals, boost creativity, and develop strong writing skills through daily practice.</p>
+        </div>
+        <div class="aud-card" style="--ac:#BAFFC9">
+          <div class="ac-img">💼</div>
+          <h3>Professionals</h3>
+          <p>Use your digital diary to reflect on career milestones, document work experiences, manage stress, and clarify professional goals.</p>
+        </div>
+        <div class="aud-card" style="--ac:#BAE1FF">
+          <div class="ac-img">🧘</div>
+          <h3>Mindfulness Seekers</h3>
+          <p>Combine journaling with mindfulness practice to reduce anxiety, improve focus, and cultivate daily gratitude and inner peace.</p>
+        </div>
+        <div class="aud-card" style="--ac:#FFFFBA">
+          <div class="ac-img">✈️</div>
+          <h3>Travellers</h3>
+          <p>Keep a vivid travel diary with photos, locations, and stories from every adventure — create a rich travelogue to revisit for years.</p>
+        </div>
+        <div class="aud-card" style="--ac:#FFD9BA">
+          <div class="ac-img">👩‍👧</div>
+          <h3>Parents</h3>
+          <p>Document the precious milestones of parenthood — first words, funny moments, proud days — in a private family diary your children can read one day.</p>
+        </div>
+        <div class="aud-card" style="--ac:#E8BAFF">
+          <div class="ac-img">🎨</div>
+          <h3>Creatives</h3>
+          <p>Use your diary as a creative notebook — capture ideas, story drafts, artistic inspiration, and the behind-the-scenes of your creative journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge blue">❓ FAQ</div>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about writing your online diary with WriteDiary.online.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is WriteDiary.online completely free to use? <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Yes! WriteDiary.online is 100% free to use with no hidden costs. You can write unlimited diary entries, access all core features, and keep your journal forever without paying a penny. We believe everyone deserves a private place to write.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How private is my online diary? <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Your privacy is our top priority. All diary entries are end-to-end encrypted, meaning only you can read them. We never sell your data, never read your entries, and never show ads inside your diary. Your personal journal belongs entirely to you.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I access my diary from multiple devices? <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Absolutely! WriteDiary.online works seamlessly across all devices — desktop, tablet, and mobile. Your entries sync automatically via secure cloud backup, so your diary is always with you wherever you go.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What makes WriteDiary.online different from a paper diary? <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Unlike paper diaries, WriteDiary.online offers search, mood tracking, photo attachments, cloud backup, writing streaks, and analytics. Your digital diary can never be lost, damaged, or accidentally read by someone who finds it. Plus, you can write from anywhere, at any time.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is WriteDiary.online suitable for kids and students? <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Yes! WriteDiary.online has a colourful, educational-style design perfect for young writers. Students benefit enormously from daily journaling — it improves writing skills, emotional intelligence, and academic reflection. The app is safe, ad-free inside the diary, and private.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I export or download my diary entries? <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Yes! You can export your diary as a PDF, text file, or formatted document at any time. Your memories are always yours to keep, download, and share if you choose.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / QUOTES SECTION (no ratings) -->
+  <section class="quotes-section">
+    <div class="container">
+      <div class="section-header light">
+        <div class="section-badge yellow">💬 From the Community</div>
+        <h2>Stories from Our Diary Writers</h2>
+        <p>Thousands of people have made WriteDiary.online part of their daily routine. Here's what journaling has meant to them.</p>
+      </div>
+      <div class="quotes-grid">
+        <div class="quote-card qc1">
+          <div class="q-text">"Writing in my online diary every morning has completely changed how I handle stress. I feel so much clearer and calmer starting my day by putting thoughts on paper — or screen!"</div>
+          <div class="q-author"><span class="q-avatar">👩‍🎓</span><div><strong>Aisha K.</strong><br><small>University Student</small></div></div>
+        </div>
+        <div class="quote-card qc2">
+          <div class="q-text">"I've been journaling since I was 12 using paper diaries. Switching to WriteDiary.online felt scary but now I can't imagine going back. The search alone is worth it — I found an entry from 3 years ago in seconds!"</div>
+          <div class="q-author"><span class="q-avatar">🧔</span><div><strong>Marco T.</strong><br><small>Graphic Designer</small></div></div>
+        </div>
+        <div class="quote-card qc3">
+          <div class="q-text">"The mood tracker showed me I was consistently low on Monday mornings. That insight helped me make a small schedule change that genuinely improved my week. A diary gave me data about my own life!"</div>
+          <div class="q-author"><span class="q-avatar">👩‍💼</span><div><strong>Priya S.</strong><br><small>Project Manager</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <div class="cta-bubble cb1"></div>
+      <div class="cta-bubble cb2"></div>
+      <div class="cta-bubble cb3"></div>
+    </div>
+    <div class="container cta-content">
+      <div class="cta-emoji">📖</div>
+      <h2>Your Story Deserves to Be Written</h2>
+      <p>Join thousands of diary writers who use WriteDiary.online to capture life's moments, understand their emotions, and build the habit of daily reflection. It's free, it's private, and it takes less than a minute to start.</p>
+      <button class="btn-cta-big" onclick="openApp()">✍️ Start Writing Your Diary — It's Free</button>
+      <div class="cta-note">No credit card. No spam. Just your diary.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER (JS Component) -->
+  <div id="footer-root"></div>
+
+  <!-- MODAL: New Entry / App Modal -->
+  <div class="modal-overlay" id="app-modal" style="display:none">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3>📖 Welcome to WriteDiary.online</h3>
+      <p>Your free, private online diary is ready. The app is embedded on this page — scroll down to the <strong>"Write Your Story"</strong> section to start writing!</p>
+      <button class="btn-primary" onclick="closeModal(); document.getElementById('app').scrollIntoView({behavior:'smooth'})">Go to Diary ✍️</button>
+    </div>
+  </div>
+
+  <script src="components.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
